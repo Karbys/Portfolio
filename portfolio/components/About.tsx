@@ -4,13 +4,39 @@ import AnimationWrapper from './AnimationWrapper';
 
 export default function About() {
   const skills = [
-    { name: 'React', level: 90 },
-    { name: 'Next.js', level: 85 },
-    { name: 'TypeScript', level: 80 },
-    { name: 'Node.js', level: 75 },
-    { name: 'Python', level: 70 },
-    { name: 'MongoDB', level: 65 },
+    { name: 'React', level: 'Advanced', experience: '4+ years' },
+    { name: 'Next.js', level: 'Advanced', experience: '3+ years' },
+    { name: 'TypeScript', level: 'Intermediate', experience: '2+ years' },
+    { name: 'Node.js', level: 'Intermediate', experience: '3+ years' },
+    { name: 'Python', level: 'Intermediate', experience: '2+ years' },
+    { name: 'MongoDB', level: 'Intermediate', experience: '2+ years' },
   ];
+
+  const getLevelColor = (level: string) => {
+    switch (level) {
+      case 'Advanced':
+        return 'from-green-500 to-emerald-600';
+      case 'Intermediate':
+        return 'from-blue-500 to-cyan-600';
+      case 'Beginner':
+        return 'from-yellow-500 to-orange-500';
+      default:
+        return 'from-gray-500 to-gray-600';
+    }
+  };
+
+  const getLevelIcon = (level: string) => {
+    switch (level) {
+      case 'Advanced':
+        return '🚀';
+      case 'Intermediate':
+        return '💪';
+      case 'Beginner':
+        return '🌱';
+      default:
+        return '📚';
+    }
+  };
 
   const experiences = [
     {
@@ -81,18 +107,26 @@ export default function About() {
             <AnimationWrapper animation="fadeInRight" delay={400}>
               <div className="lg:col-span-1 hover-lift">
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">Skills & Technologies</h3>
-                <div className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {skills.map((skill, index) => (
-                    <div key={index} className="group">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium text-gray-700 group-hover:text-blue-600 transition-colors">{skill.name}</span>
-                        <span className="text-sm text-gray-500">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                        <div 
-                          className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000 ease-out group-hover:animate-pulse-glow"
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
+                    <div key={index} className="group bg-gray-50 rounded-lg p-4 hover:bg-blue-50 transition-all duration-300 hover-lift">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <span className="text-xl">{getLevelIcon(skill.level)}</span>
+                          <div>
+                            <div className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
+                              {skill.name}
+                            </div>
+                            <div className="text-sm text-gray-600">{skill.experience}</div>
+                          </div>
+                        </div>
+                        <div className={`px-3 py-1 rounded-full text-xs font-medium ${
+                          skill.level === 'Advanced' ? 'bg-green-100 text-green-800' :
+                          skill.level === 'Intermediate' ? 'bg-blue-100 text-blue-800' :
+                          'bg-yellow-100 text-yellow-800'
+                        }`}>
+                          {skill.level}
+                        </div>
                       </div>
                     </div>
                   ))}

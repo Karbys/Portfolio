@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import AnimationWrapper from './AnimationWrapper';
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -96,31 +97,36 @@ export default function Projects() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">My Projects</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Here are some of my recent projects that showcase my skills and experience 
-              in different technologies and domains.
-            </p>
-          </div>
+          <AnimationWrapper animation="fadeInUp">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">My Projects</h2>
+              <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Here are some of my recent projects that showcase my skills and experience 
+                in different technologies and domains.
+              </p>
+            </div>
+          </AnimationWrapper>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveFilter(category.id)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
-                  activeFilter === category.id
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600 border border-gray-200'
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
+          <AnimationWrapper animation="fadeInUp" delay={200}>
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {categories.map((category, index) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveFilter(category.id)}
+                  className={`px-6 py-2 rounded-full font-medium transition-all duration-300 hover-lift ${
+                    activeFilter === category.id
+                      ? 'bg-blue-600 text-white shadow-lg hover-glow'
+                      : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600 border border-gray-200 hover:border-blue-300'
+                  }`}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
+          </AnimationWrapper>
 
           {/* Projects Grid */}
           <div className="mb-8">
@@ -128,11 +134,11 @@ export default function Projects() {
               {activeFilter === 'all' ? 'All Projects' : `${categories.find(c => c.id === activeFilter)?.name}`}
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project) => (
-                <div
-                  key={project.id}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group flex flex-col h-full"
-                >
+              {filteredProjects.map((project, index) => (
+                <AnimationWrapper key={project.id} animation="scaleIn" delay={index * 100}>
+                  <div
+                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group flex flex-col h-full hover-lift"
+                  >
                   {/* Project Image */}
                   <div className="relative h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 overflow-hidden">
                     <div className="absolute inset-0 bg-black bg-opacity-10"></div>
@@ -189,7 +195,8 @@ export default function Projects() {
                       </a>
                     </div>
                   </div>
-                </div>
+                  </div>
+                </AnimationWrapper>
               ))}
             </div>
           </div>

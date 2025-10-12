@@ -45,9 +45,10 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Column - Story */}
-            <div>
+          {/* Grid Layout 2x2 */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+            {/* Top Left - My Story */}
+            <div className="lg:col-span-1">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">My Story</h3>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
@@ -68,28 +69,10 @@ export default function About() {
                   and maintainability.
                 </p>
               </div>
-
-              {/* Experience Timeline */}
-              <div className="mt-12">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Experience</h3>
-                <div className="space-y-6">
-                  {experiences.map((exp, index) => (
-                    <div key={index} className="relative pl-8 border-l-2 border-blue-200">
-                      <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-600 rounded-full"></div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <h4 className="font-semibold text-gray-800">{exp.title}</h4>
-                        <p className="text-blue-600 font-medium">{exp.company}</p>
-                        <p className="text-sm text-gray-500 mb-2">{exp.period}</p>
-                        <p className="text-gray-600">{exp.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
-            {/* Right Column - Skills */}
-            <div>
+            {/* Top Right - Skills & Technologies */}
+            <div className="lg:col-span-1">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">Skills & Technologies</h3>
               <div className="space-y-6">
                 {skills.map((skill, index) => (
@@ -107,22 +90,43 @@ export default function About() {
                   </div>
                 ))}
               </div>
+            </div>
 
-              {/* Additional Info */}
-              <div className="mt-12 grid grid-cols-2 gap-6">
-                <div className="text-center p-6 bg-blue-50 rounded-lg">
+            {/* Bottom Left - Experience Timeline */}
+            <div className="lg:col-span-1">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Experience</h3>
+              <div className="space-y-6">
+                {experiences.map((exp, index) => (
+                  <div key={index} className="relative pl-8 border-l-2 border-blue-200">
+                    <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-600 rounded-full"></div>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-gray-800">{exp.title}</h4>
+                      <p className="text-blue-600 font-medium">{exp.company}</p>
+                      <p className="text-sm text-gray-500 mb-2">{exp.period}</p>
+                      <p className="text-gray-600">{exp.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom Right - Stats */}
+            <div className="lg:col-span-1">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Achievements</h3>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center p-6 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
                   <div className="text-3xl font-bold text-blue-600 mb-2">5+</div>
                   <div className="text-gray-600">Years Experience</div>
                 </div>
-                <div className="text-center p-6 bg-purple-50 rounded-lg">
+                <div className="text-center p-6 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors duration-200">
                   <div className="text-3xl font-bold text-purple-600 mb-2">50+</div>
                   <div className="text-gray-600">Projects Completed</div>
                 </div>
-                <div className="text-center p-6 bg-green-50 rounded-lg">
+                <div className="text-center p-6 bg-green-50 rounded-lg hover:bg-green-100 transition-colors duration-200">
                   <div className="text-3xl font-bold text-green-600 mb-2">30+</div>
                   <div className="text-gray-600">Happy Clients</div>
                 </div>
-                <div className="text-center p-6 bg-orange-50 rounded-lg">
+                <div className="text-center p-6 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors duration-200">
                   <div className="text-3xl font-bold text-orange-600 mb-2">24/7</div>
                   <div className="text-gray-600">Support</div>
                 </div>

@@ -1,0 +1,4 @@
+# Cloudflare Pages - ต้องใช้ nodejs_compat สำหรับ Next.js (@cloudflare/next-on-pages)
+# ดูเพิ่ม: https://developers.cloudflare.com/workers/configuration/compatibility-flags/
+compatibility_date = "2025-02-20"
+compatibility_flags = ["nodejs_compat"]

@@ -1,13 +1,16 @@
 'use client';
 
+import { useLocale } from '@/context/LocaleContext';
+
 export default function Footer() {
+  const { t } = useLocale();
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
+    { key: 'header.nav.home', href: '#home' },
+    { key: 'header.nav.about', href: '#about' },
+    { key: 'header.nav.projects', href: '#projects' },
+    { key: 'header.nav.contact', href: '#contact' }
   ];
 
   const socialLinks = [
@@ -50,24 +53,23 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 dark:bg-slate-950 text-white">
       <div className="container mx-auto px-6 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">
-              <span className="text-blue-400">Portfolio</span>
+              <span className="text-blue-400">{t('header.logo')}</span>
             </h3>
-            <p className="text-gray-300 mb-6 max-w-md">
-              A passionate developer creating beautiful, functional, and user-friendly 
-              web applications. Let's build something amazing together!
+            <p className="text-gray-300 dark:text-slate-400 mb-6 max-w-md">
+              {t('footer.tagline')}
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors duration-200"
+                  className="w-10 h-10 bg-gray-800 dark:bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 dark:hover:bg-blue-500 transition-colors duration-200"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -78,15 +80,15 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
-                <li key={link.name}>
+                <li key={link.key}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200"
+                    className="text-gray-300 dark:text-slate-400 hover:text-blue-400 transition-colors duration-200"
                   >
-                    {link.name}
+                    {t(link.key)}
                   </a>
                 </li>
               ))}
@@ -95,8 +97,8 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <div className="space-y-2 text-gray-300">
+            <h4 className="text-lg font-semibold mb-4">{t('footer.contactInfo')}</h4>
+            <div className="space-y-2 text-gray-300 dark:text-slate-400">
               <p>📧 john.doe@example.com</p>
               <p>📱 +1 (555) 123-4567</p>
               <p>📍 New York, NY</p>
@@ -105,16 +107,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {currentYear} John Doe. All rights reserved.
+        <div className="border-t border-gray-800 dark:border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 dark:text-slate-500 text-sm mb-4 md:mb-0">
+            © {currentYear} John Doe. {t('footer.rightsReserved')}
           </p>
           <div className="flex space-x-6 text-sm">
-            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-              Privacy Policy
+            <a href="#" className="text-gray-400 dark:text-slate-500 hover:text-blue-400 transition-colors">
+              {t('footer.privacyPolicy')}
             </a>
-            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-              Terms of Service
+            <a href="#" className="text-gray-400 dark:text-slate-500 hover:text-blue-400 transition-colors">
+              {t('footer.termsOfService')}
             </a>
           </div>
         </div>

@@ -2,12 +2,20 @@
 
 import { useState, useEffect } from 'react';
 import FloatingElements from './FloatingElements';
+import { useLocale } from '@/context/LocaleContext';
 
 export default function Hero() {
+  const { t } = useLocale();
+  const fullText = t('hero.title');
   const [currentText, setCurrentText] = useState('');
-  const fullText = 'Full Stack Developer';
   const [isDeleting, setIsDeleting] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
+
+  useEffect(() => {
+    setCurrentText('');
+    setTextIndex(0);
+    setIsDeleting(false);
+  }, [fullText]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -32,58 +40,57 @@ export default function Hero() {
   }, [textIndex, isDeleting, fullText]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
       {/* Background Animations */}
       <FloatingElements />
       
       {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 animate-gradient-shift"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 dark:from-blue-500/10 dark:via-purple-500/10 dark:to-pink-500/10 animate-gradient-shift"></div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Profile Image with Animation */}
           <div className="mb-8 animate-scaleIn" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1 animate-pulse-glow">
-              <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center hover-lift">
-                <span className="text-4xl text-gray-600 animate-float">👨‍💻</span>
+              <div className="w-full h-full rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center hover-lift">
+                <span className="text-4xl text-gray-600 dark:text-slate-300 animate-float">👨‍💻</span>
               </div>
             </div>
           </div>
 
           {/* Name with Staggered Animation */}
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4 animate-fadeInUp" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-            Hello, I'm <span className="text-blue-600 hover-glow inline-block">John Doe</span>
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 dark:text-slate-100 mb-4 animate-fadeInUp" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
+            {t('hero.greeting')} <span className="text-blue-600 dark:text-blue-400 hover-glow inline-block">{t('hero.name')}</span>
           </h1>
 
           {/* Animated Title with Typewriter Effect */}
-          <div className="text-2xl md:text-3xl text-gray-600 mb-8 h-12 flex items-center justify-center animate-fadeInUp" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
-            <span className="border-r-2 border-blue-600 pr-2 font-mono">
+          <div className="text-2xl md:text-3xl text-gray-600 dark:text-slate-400 mb-8 h-12 flex items-center justify-center animate-fadeInUp" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
+            <span className="border-r-2 border-blue-600 dark:border-blue-400 pr-2 font-mono">
               {currentText}
               <span className="animate-pulse">|</span>
             </span>
           </div>
 
           {/* Description with Fade In */}
-          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed animate-fadeInUp" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
-            I'm passionate about creating beautiful, functional, and user-friendly web applications. 
-            I love turning complex problems into simple, elegant solutions.
+          <p className="text-lg text-gray-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed animate-fadeInUp" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
+            {t('hero.description')}
           </p>
 
           {/* CTA Buttons with Staggered Animation */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp" style={{ animationDelay: '1s', animationFillMode: 'both' }}>
             <a
               href="#projects"
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover-lift hover-glow group relative overflow-hidden"
+              className="bg-blue-600 dark:bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover-lift hover-glow group relative overflow-hidden"
             >
-              <span className="relative z-10">View My Work</span>
+              <span className="relative z-10">{t('hero.ctaWork')}</span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </a>
             <a
               href="#contact"
-              className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 hover-lift relative overflow-hidden group"
+              className="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 transition-all duration-300 hover-lift relative overflow-hidden group"
             >
-              <span className="relative z-10">Get In Touch</span>
-              <div className="absolute inset-0 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              <span className="relative z-10">{t('hero.ctaContact')}</span>
+              <div className="absolute inset-0 bg-blue-600 dark:bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </a>
           </div>
 
@@ -97,7 +104,7 @@ export default function Hero() {
               <a 
                 key={index}
                 href="#" 
-                className="text-gray-600 hover:text-blue-600 transition-all duration-300 hover-lift animate-fadeInUp"
+                className="text-gray-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover-lift animate-fadeInUp"
                 style={{ animationDelay: social.delay, animationFillMode: 'both' }}
               >
                 <svg className="w-6 h-6 hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">

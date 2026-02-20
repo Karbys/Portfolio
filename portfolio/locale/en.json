@@ -1,0 +1,132 @@
+{
+  "header": {
+    "logo": "Portfolio",
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "John Doe",
+    "title": "Full Stack Developer",
+    "description": "I'm passionate about creating beautiful, functional, and user-friendly web applications. I love turning complex problems into simple, elegant solutions.",
+    "ctaWork": "View My Work",
+    "ctaContact": "Get In Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "I'm a passionate developer with over 5 years of experience in creating digital experiences that are both beautiful and functional.",
+    "myStory": "My Story",
+    "storyP1": "I started my journey as a developer in 2019, and since then I've been passionate about creating digital solutions that make a difference. I love working with modern technologies and staying up-to-date with the latest trends in web development.",
+    "storyP2": "When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community. I believe in continuous learning and always strive to improve my skills.",
+    "storyP3": "My goal is to create applications that not only meet the requirements but exceed expectations in terms of user experience, performance, and maintainability.",
+    "skillsTitle": "Skills & Technologies",
+    "experienceTitle": "Experience",
+    "achievementsTitle": "Achievements",
+    "levelAdvanced": "Advanced",
+    "levelIntermediate": "Intermediate",
+    "levelBeginner": "Beginner",
+    "yearsExperience": "Years Experience",
+    "projectsCompleted": "Projects Completed",
+    "happyClients": "Happy Clients",
+    "support": "Support"
+  },
+  "skills": [
+    { "name": "React", "level": "advanced", "experience": "4+ years" },
+    { "name": "Next.js", "level": "advanced", "experience": "3+ years" },
+    { "name": "TypeScript", "level": "intermediate", "experience": "2+ years" },
+    { "name": "Node.js", "level": "intermediate", "experience": "3+ years" },
+    { "name": "Python", "level": "intermediate", "experience": "2+ years" },
+    { "name": "MongoDB", "level": "intermediate", "experience": "2+ years" }
+  ],
+  "experiences": [
+    {
+      "title": "Senior Frontend Developer",
+      "company": "Tech Company",
+      "period": "2022 - Present",
+      "description": "Leading frontend development for multiple web applications using React and Next.js."
+    },
+    {
+      "title": "Full Stack Developer",
+      "company": "Startup Inc.",
+      "period": "2020 - 2022",
+      "description": "Developed full-stack web applications from concept to deployment."
+    },
+    {
+      "title": "Frontend Developer",
+      "company": "Digital Agency",
+      "period": "2019 - 2020",
+      "description": "Created responsive websites and web applications for various clients."
+    }
+  ],
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Here are some of my recent projects that showcase my skills and experience in different technologies and domains.",
+    "all": "All Projects",
+    "categoryWeb": "Web Development",
+    "categoryMobile": "Mobile Apps",
+    "categoryAi": "AI/ML",
+    "featured": "Featured",
+    "liveDemo": "Live Demo",
+    "github": "GitHub",
+    "items": [
+      {
+        "title": "E-Commerce Platform",
+        "description": "A full-stack e-commerce solution built with Next.js, TypeScript, and Stripe integration for seamless online shopping experiences."
+      },
+      {
+        "title": "Task Management App",
+        "description": "A collaborative task management application with real-time updates, team collaboration features, and project tracking."
+      },
+      {
+        "title": "Weather Dashboard",
+        "description": "A responsive weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics."
+      },
+      {
+        "title": "Mobile Banking App",
+        "description": "A secure mobile banking application with biometric authentication, real-time transactions, and financial management tools."
+      },
+      {
+        "title": "AI Chat Assistant",
+        "description": "An intelligent chat assistant powered by machine learning with natural language processing and contextual understanding."
+      },
+      {
+        "title": "Social Media Analytics",
+        "description": "A comprehensive analytics dashboard for social media performance tracking, insights, and engagement metrics."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together!",
+    "connectTitle": "Let's Connect",
+    "followMe": "Follow Me",
+    "formTitle": "Send Message",
+    "labelName": "Name",
+    "labelEmail": "Email",
+    "labelSubject": "Subject",
+    "labelMessage": "Message",
+    "placeholderName": "Your name",
+    "placeholderEmail": "your.email@example.com",
+    "placeholderSubject": "What's this about?",
+    "placeholderMessage": "Tell me about your project or idea...",
+    "sendMessage": "Send Message",
+    "sending": "Sending...",
+    "successMessage": "Thank you for your message! I'll get back to you soon.",
+    "errorMessage": "Sorry, there was an error sending your message. Please try again.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location"
+  },
+  "footer": {
+    "tagline": "A passionate developer creating beautiful, functional, and user-friendly web applications. Let's build something amazing together!",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "rightsReserved": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  }
+}

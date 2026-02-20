@@ -64,8 +64,8 @@ export default function Hero() {
           </h1>
 
           {/* Animated Title with Typewriter Effect */}
-          <div className="text-2xl md:text-3xl text-gray-600 dark:text-slate-400 mb-8 h-12 flex items-center justify-center animate-fadeInUp" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
-            <span className="border-r-2 border-blue-600 dark:border-blue-400 pr-2 font-mono">
+          <div className="text-2xl md:text-3xl text-gray-600 dark:text-slate-400 mb-8 h-12 flex items-center justify-center animate-fadeInUp font-sans" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
+            <span className="border-r-2 border-blue-600 dark:border-blue-400 pr-2">
               {currentText}
               <span className="animate-pulse">|</span>
             </span>

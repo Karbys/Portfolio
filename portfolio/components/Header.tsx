@@ -10,6 +10,41 @@ export default function Header() {
   const { t, locale, setLocale } = useLocale();
   const { theme, toggleTheme } = useTheme();
 
+  const handleThemeToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = Math.round(rect.left + rect.width / 2);
+    const y = Math.round(rect.top + rect.height / 2);
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+
+    if (!('startViewTransition' in document)) {
+      toggleTheme();
+      return;
+    }
+
+    const vt = (document as Document & {
+      startViewTransition: (cb: () => void) => { ready: Promise<void> };
+    }).startViewTransition(() => {
+      document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+      toggleTheme();
+    });
+
+    vt.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(150vmax at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 500,
+          easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+          pseudoElement: '::view-transition-new(root)',
+        }
+      );
+    });
+  };
+
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handler, { passive: true });
@@ -65,7 +100,7 @@ export default function Header() {
           {/* Controls */}
           <div className="hidden md:flex items-center gap-1 pl-4 ml-2 border-l border-gray-200/60 dark:border-slate-700/60">
             <button
-              onClick={toggleTheme}
+              onClick={handleThemeToggle}
               className={`p-2 rounded-lg transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/5 ${scrolled ? 'text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white' : 'text-gray-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-amber-400'}`}
               aria-label="Toggle theme"
             >
@@ -120,7 +155,7 @@ export default function Header() {
             ))}
             <div className="flex items-center gap-2 px-4 pt-2">
               <button
-                onClick={() => { toggleTheme(); setIsMenuOpen(false); }}
+                onClick={(e) => { handleThemeToggle(e); setIsMenuOpen(false); }}
                 className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-slate-400"
               >
                 {theme === 'dark' ? (

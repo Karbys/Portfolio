@@ -201,3 +201,13 @@ body {
   background: rgba(220, 38, 38, 0.2);
   color: inherit;
 }
+
+/* ── Dark/light circular reveal transition ── */
+/* Disable the browser's default cross-fade so our JS clip-path takes over */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) { z-index: 9999; }
+::view-transition-old(root) { z-index: 1; }

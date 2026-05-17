@@ -1,141 +1,152 @@
 'use client';
 
 import { useState } from 'react';
+import AnimationWrapper from './AnimationWrapper';
 import { useLocale } from '@/context/LocaleContext';
 
 export default function Contact() {
   const { t } = useLocale();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset status after 3 seconds
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-    }, 2000);
+      setTimeout(() => setSubmitStatus('idle'), 4000);
+    }, 1800);
   };
 
   const contactInfo = [
     {
       icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       ),
-      titleKey: 'contact.email' as const,
-      value: 'john.doe@example.com',
-      link: 'mailto:john.doe@example.com'
+      label: t('contact.email'),
+      value: 'paratthakon.suks@gmail.com',
+      href: 'mailto:paratthakon.suks@gmail.com',
+      color: 'blue',
     },
     {
       icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
         </svg>
       ),
-      titleKey: 'contact.phone' as const,
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      label: t('contact.phone'),
+      value: '+66 85-589-4478',
+      href: 'tel:+66855894478',
+      color: 'violet',
     },
     {
       icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       ),
-      titleKey: 'contact.location' as const,
-      value: 'New York, NY',
-      link: '#'
-    }
+      label: t('contact.location'),
+      value: 'Bangkok, Thailand',
+      href: '#',
+      color: 'cyan',
+    },
   ];
 
+  const inputClass = 'w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 dark:focus:border-blue-400 transition-all duration-200 text-sm';
+
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-slate-900">
+    <section id="contact" className="py-24 bg-gray-50 dark:bg-slate-800/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 dark:text-slate-100 mb-4">{t('contact.title')}</h2>
-            <div className="w-24 h-1 bg-blue-600 dark:bg-blue-500 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">
-              {t('contact.subtitle')}
-            </p>
-          </div>
 
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Information */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-slate-100 mb-8">{t('contact.connectTitle')}</h3>
-              <div className="space-y-6 mb-8">
-                {contactInfo.map((info, index) => (
+          {/* Header */}
+          <AnimationWrapper animation="fadeInUp">
+            <div className="text-center mb-14">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('contact.title')}</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-violet-600 mx-auto mb-5 rounded-full"></div>
+              <p className="text-lg text-gray-500 dark:text-slate-400 max-w-2xl mx-auto">{t('contact.subtitle')}</p>
+            </div>
+          </AnimationWrapper>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+
+            {/* Left — contact info */}
+            <AnimationWrapper animation="fadeInLeft" delay={100}>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-7">{t('contact.connectTitle')}</h3>
+
+              <div className="space-y-4 mb-8">
+                {contactInfo.map((info, i) => (
                   <a
-                    key={index}
-                    href={info.link}
-                    className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors duration-200"
+                    key={i}
+                    href={info.href}
+                    className={`group flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700/50 hover:border-blue-200 dark:hover:border-blue-700/50 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5`}
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400">
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                      info.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400' :
+                      info.color === 'violet' ? 'bg-violet-100 dark:bg-violet-900/40 text-violet-600 dark:text-violet-400' :
+                      'bg-cyan-100 dark:bg-cyan-900/40 text-cyan-600 dark:text-cyan-400'
+                    }`}>
                       {info.icon}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 dark:text-slate-200">{t(info.titleKey)}</h4>
-                      <p className="text-gray-600 dark:text-slate-400">{info.value}</p>
+                      <p className="text-xs text-gray-400 dark:text-slate-500 font-medium uppercase tracking-wide">{info.label}</p>
+                      <p className="text-gray-800 dark:text-slate-200 font-medium text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{info.value}</p>
                     </div>
+                    <svg className="w-4 h-4 text-gray-300 dark:text-slate-600 ml-auto group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </a>
                 ))}
               </div>
 
-              {/* Social Media */}
+              {/* Social links */}
               <div>
-                <h4 className="text-lg font-semibold text-gray-800 dark:text-slate-100 mb-4">{t('contact.followMe')}</h4>
-                <div className="flex space-x-4">
-                  <a href="#" className="w-10 h-10 bg-blue-600 dark:bg-blue-500 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <p className="text-sm font-semibold text-gray-700 dark:text-slate-300 mb-4 uppercase tracking-wide">{t('contact.followMe')}</p>
+                <div className="flex gap-3">
+                  <a
+                    href="https://www.linkedin.com/in/p-suksukhon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-2.5 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow-md"
+                    aria-label="LinkedIn"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 .774 0 .729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
+                    LinkedIn
                   </a>
-                  <a href="#" className="w-10 h-10 bg-gray-800 dark:bg-slate-700 text-white rounded-lg flex items-center justify-center hover:bg-gray-900 dark:hover:bg-slate-600 transition-colors">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  <a
+                    href="mailto:paratthakon.suks@gmail.com"
+                    className="group flex items-center gap-2.5 px-4 py-2.5 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 text-sm font-medium rounded-xl border border-gray-200 dark:border-slate-700 hover:border-violet-300 dark:hover:border-violet-600 hover:text-violet-600 dark:hover:text-violet-400 transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow-md"
+                    aria-label="Email"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-blue-400 dark:bg-blue-500 text-white rounded-lg flex items-center justify-center hover:bg-blue-500 dark:hover:bg-blue-600 transition-colors">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                    </svg>
+                    Email
                   </a>
                 </div>
               </div>
-            </div>
+            </AnimationWrapper>
 
-            {/* Contact Form */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-slate-100 mb-8">{t('contact.formTitle')}</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+            {/* Right — form */}
+            <AnimationWrapper animation="fadeInRight" delay={200}>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-7">{t('contact.formTitle')}</h3>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
                       {t('contact.labelName')}
                     </label>
                     <input
@@ -145,12 +156,12 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-100"
+                      className={inputClass}
                       placeholder={t('contact.placeholderName')}
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
                       {t('contact.labelEmail')}
                     </label>
                     <input
@@ -160,13 +171,14 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-100"
+                      className={inputClass}
                       placeholder={t('contact.placeholderEmail')}
                     />
                   </div>
                 </div>
+
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
                     {t('contact.labelSubject')}
                   </label>
                   <input
@@ -176,12 +188,13 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-100"
+                    className={inputClass}
                     placeholder={t('contact.placeholderSubject')}
                   />
                 </div>
+
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
                     {t('contact.labelMessage')}
                   </label>
                   <textarea
@@ -190,42 +203,53 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-100"
+                    rows={5}
+                    className={`${inputClass} resize-none`}
                     placeholder={t('contact.placeholderMessage')}
                   />
                 </div>
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 dark:bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 px-6 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-700 hover:to-violet-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
                 >
                   {isSubmitting ? (
-                    <span className="flex items-center justify-center">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <>
+                      <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
                       {t('contact.sending')}
-                    </span>
+                    </>
                   ) : (
-                    t('contact.sendMessage')
+                    <>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
+                      {t('contact.sendMessage')}
+                    </>
                   )}
                 </button>
 
-                {/* Status Messages */}
                 {submitStatus === 'success' && (
-                  <div className="p-4 bg-green-100 dark:bg-green-900/30 border border-green-400 dark:border-green-700 text-green-700 dark:text-green-300 rounded-lg">
+                  <div className="flex items-center gap-3 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/50 text-green-700 dark:text-green-400 rounded-xl text-sm">
+                    <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                     {t('contact.successMessage')}
                   </div>
                 )}
                 {submitStatus === 'error' && (
-                  <div className="p-4 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-300 rounded-lg">
+                  <div className="flex items-center gap-3 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 text-red-700 dark:text-red-400 rounded-xl text-sm">
+                    <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                     {t('contact.errorMessage')}
                   </div>
                 )}
               </form>
-            </div>
+            </AnimationWrapper>
           </div>
         </div>
       </div>

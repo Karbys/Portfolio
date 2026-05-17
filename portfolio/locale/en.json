@@ -1,6 +1,6 @@
 {
   "header": {
-    "logo": "Portfolio",
+    "logo": "P.Suks",
     "nav": {
       "home": "Home",
       "about": "About",
@@ -9,102 +9,200 @@
     }
   },
   "hero": {
-    "greeting": "Hello, I'm",
-    "name": "John Doe",
-    "title": "Full Stack Developer",
-    "description": "I'm passionate about creating beautiful, functional, and user-friendly web applications. I love turning complex problems into simple, elegant solutions.",
-    "ctaWork": "View My Work",
-    "ctaContact": "Get In Touch"
+    "greeting": "Hi, I'm",
+    "name": "Paratthakon Suksukhon",
+    "roles": ["AI Engineer", "Full-Stack Developer", "Project Manager"],
+    "description": "New grad from KMUTT's Computer Engineering International Program. Passionate about building AI-powered applications, full-stack systems, and leading teams to ship real products.",
+    "ctaWork": "View Projects",
+    "ctaContact": "Get In Touch",
+    "terminalLines": [
+      { "cmd": "whoami", "out": "Paratthakon Suksukhon" },
+      { "cmd": "cat current_role.txt", "out": "The Station Group Holdings\nAI Eng · Full-Stack SWE · PM" },
+      { "cmd": "cat tech_stack.txt", "out": "LangChain · LangGraph · RAG\nNext.js · FastAPI · MongoDB" },
+      { "cmd": "echo $UNIVERSITY", "out": "KMUTT – Computer Engineering (Intl.)" }
+    ]
   },
   "about": {
     "title": "About Me",
-    "subtitle": "I'm a passionate developer with over 5 years of experience in creating digital experiences that are both beautiful and functional.",
+    "subtitle": "New grad computer engineer from KMUTT, focused on building AI-powered systems and full-stack applications with real-world impact.",
     "myStory": "My Story",
-    "storyP1": "I started my journey as a developer in 2019, and since then I've been passionate about creating digital solutions that make a difference. I love working with modern technologies and staying up-to-date with the latest trends in web development.",
-    "storyP2": "When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community. I believe in continuous learning and always strive to improve my skills.",
-    "storyP3": "My goal is to create applications that not only meet the requirements but exceed expectations in terms of user experience, performance, and maintainability.",
+    "storyP1": "I'm a Computer Engineering graduate (International Program) from King Mongkut's University of Technology Thonburi. My journey started with C and data structures, and evolved into building AI agents, RAG pipelines, and full-stack web applications.",
+    "storyP2": "Through internships at Botnoi Consulting, Bualoitech, and my current role at The Station Group Holdings, I've worn many hats — AI Engineer, Full-Stack Developer, and Project Manager — gaining hands-on experience in shipping production systems.",
+    "storyP3": "I'm driven by the intersection of AI and software engineering. Whether implementing adaptive RAG systems, designing CI/CD pipelines, or crafting responsive UIs, I aim to build tools that are elegant, efficient, and user-centered.",
     "skillsTitle": "Skills & Technologies",
-    "experienceTitle": "Experience",
-    "achievementsTitle": "Achievements",
+    "skillTabWeb": "Web Dev",
+    "skillTabAI": "AI / ML",
+    "skillTabDB": "Database",
+    "skillTabLang": "Languages",
+    "skillTabTools": "Tools",
+    "experienceTitle": "Work Experience",
+    "educationTitle": "Education",
+    "achievementsTitle": "At a Glance",
     "levelAdvanced": "Advanced",
     "levelIntermediate": "Intermediate",
     "levelBeginner": "Beginner",
-    "yearsExperience": "Years Experience",
-    "projectsCompleted": "Projects Completed",
-    "happyClients": "Happy Clients",
-    "support": "Support"
+    "yearsExperience": "Years Learning",
+    "projectsCompleted": "Projects Built",
+    "happyClients": "Certifications",
+    "support": "Companies Worked"
   },
-  "skills": [
-    { "name": "React", "level": "advanced", "experience": "4+ years" },
-    { "name": "Next.js", "level": "advanced", "experience": "3+ years" },
-    { "name": "TypeScript", "level": "intermediate", "experience": "2+ years" },
-    { "name": "Node.js", "level": "intermediate", "experience": "3+ years" },
-    { "name": "Python", "level": "intermediate", "experience": "2+ years" },
-    { "name": "MongoDB", "level": "intermediate", "experience": "2+ years" }
+  "skillGroups": [
+    {
+      "id": "web",
+      "category": "Web Development",
+      "icon": "🌐",
+      "skills": ["React", "Next.js", "TypeScript", "Node.js", "Express.js", "FastAPI", "PHP", "Golang", "Tailwind CSS", "Bootstrap", "Shadcn", "Chart.js", "Anime.js", "Axios", "Streamlit"]
+    },
+    {
+      "id": "ai",
+      "category": "AI & Machine Learning",
+      "icon": "🤖",
+      "skills": ["LangChain", "LangGraph", "LangSmith", "RAG", "Adaptive RAG", "MCP", "Comfy UI", "Prompt Engineering", "Sentiment Analysis", "LLM Classification", "Agent-to-Agent", "ARIMA", "SARIMA", "Data Visualization"]
+    },
+    {
+      "id": "db",
+      "category": "Database & Cloud",
+      "icon": "🗄️",
+      "skills": ["MongoDB", "Firebase", "Firestore", "Oracle DB", "PhpMyAdmin", "Vector DB", "Authentication"]
+    },
+    {
+      "id": "lang",
+      "category": "Languages",
+      "icon": "💻",
+      "skills": ["Python", "TypeScript", "JavaScript", "C", "C++", "C#", "PHP", "Golang", "HTML", "CSS"]
+    },
+    {
+      "id": "tools",
+      "category": "Tools & Design",
+      "icon": "🛠️",
+      "skills": ["GitHub", "VSCode", "Figma", "Postman", "Google Colab", "Claude Code", "Cursor", "Windsurf", "n8n", "Power BI", "Adobe Photoshop", "Premiere Pro", "Davinci Resolve", "Blender", "Jira"]
+    }
   ],
   "experiences": [
     {
-      "title": "Senior Frontend Developer",
-      "company": "Tech Company",
-      "period": "2022 - Present",
-      "description": "Leading frontend development for multiple web applications using React and Next.js."
+      "title": "AI Engineer · Software Engineer · Project Manager",
+      "company": "The Station Group Holdings Co., Ltd",
+      "period": "AUG 2025 – Present",
+      "type": "Work Integration Learning",
+      "description": "Wearing three hats: Sprint planning & CI/CD as PM; Frontend/Backend with FastAPI + Agentic AI as SWE; and Agent-to-Agent LLM systems with Adaptive RAG (LangChain/LangGraph/LangSmith) as AI Engineer."
     },
     {
-      "title": "Full Stack Developer",
-      "company": "Startup Inc.",
-      "period": "2020 - 2022",
-      "description": "Developed full-stack web applications from concept to deployment."
+      "title": "Software Engineer (Full-stack)",
+      "company": "Bualoitech Co., Ltd",
+      "period": "JUN – AUG 2025",
+      "type": "Software Engineering Internship",
+      "description": "Built a chatbot platform with API endpoints and CRUD system. Implemented Agent-to-Agent architecture using LangGraph with MongoDB vector search. Worked with Firebase, Firestore, and authentication systems."
     },
     {
-      "title": "Frontend Developer",
-      "company": "Digital Agency",
-      "period": "2019 - 2020",
-      "description": "Created responsive websites and web applications for various clients."
+      "title": "AI Engineer (NLP)",
+      "company": "Botnoi Consulting Co., Ltd",
+      "period": "JAN – MAY 2025",
+      "type": "AI-NLP Internship",
+      "description": "Developed LLM classification and sentiment analysis pipelines. Enhanced LLM performance with RAG architecture. Implemented AI agent workflows using MCP and Bolt.new for software development automation."
+    }
+  ],
+  "education": [
+    {
+      "school": "King Mongkut's University of Technology Thonburi",
+      "degree": "Bachelor of Engineering – Computer Engineering (International Program)",
+      "period": "JUL 2022 – Present",
+      "icon": "🎓"
+    },
+    {
+      "school": "Princess Chulabhorn Science Highschool College Mukdahan",
+      "degree": "High School Diploma – Math-Science-Technology Major",
+      "period": "MAY 2016 – JUL 2022",
+      "icon": "🏫"
     }
   ],
   "projects": {
     "title": "My Projects",
-    "subtitle": "Here are some of my recent projects that showcase my skills and experience in different technologies and domains.",
-    "all": "All Projects",
-    "categoryWeb": "Web Development",
-    "categoryMobile": "Mobile Apps",
-    "categoryAi": "AI/ML",
+    "subtitle": "A selection of projects spanning AI engineering, full-stack web development, and creative software — built across internships and coursework.",
+    "all": "All",
+    "categoryWeb": "Web Dev",
+    "categoryMobile": "Mobile",
+    "categoryAi": "AI / ML",
+    "categoryOther": "Other",
     "featured": "Featured",
     "liveDemo": "Live Demo",
     "github": "GitHub",
     "items": [
       {
-        "title": "E-Commerce Platform",
-        "description": "A full-stack e-commerce solution built with Next.js, TypeScript, and Stripe integration for seamless online shopping experiences."
+        "title": "Stellia AI",
+        "description": "Full-stack AI chatbot webapp with LLM agents and RAG-based knowledge retrieval. FastAPI backend, Line & Messenger webhook integration, OpenAI/Gemini powered responses."
       },
       {
-        "title": "Task Management App",
-        "description": "A collaborative task management application with real-time updates, team collaboration features, and project tracking."
+        "title": "BualoiChat",
+        "description": "Chatbot platform with custom API endpoints and CRUD system. Agent-to-Agent architecture using LangGraph, MongoDB vector knowledge base, and Firebase authentication."
       },
       {
-        "title": "Weather Dashboard",
-        "description": "A responsive weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics."
+        "title": "Stock Forecasting",
+        "description": "AI-powered stock trend prediction using Prophet Meta (Facebook). Pulls real-time data from Yahoo Finance API and visualizes trendlines in a pure HTML/CSS/JS dashboard."
       },
       {
-        "title": "Mobile Banking App",
-        "description": "A secure mobile banking application with biometric authentication, real-time transactions, and financial management tools."
+        "title": "Homemade Steganography",
+        "description": "Python cybersecurity tool that hides encrypted passwords inside images and videos using steganography techniques — encrypt and decrypt via a simple GUI."
       },
       {
-        "title": "AI Chat Assistant",
-        "description": "An intelligent chat assistant powered by machine learning with natural language processing and contextual understanding."
+        "title": "WheelPlay",
+        "description": "Unity wheelchair racing game with Arduino hardware integration, C# physics simulation, 3D models built in Blender, and accessibility-first UI design using Adobe Photoshop."
       },
       {
-        "title": "Social Media Analytics",
-        "description": "A comprehensive analytics dashboard for social media performance tracking, insights, and engagement metrics."
+        "title": "BRK-Store CLI",
+        "description": "Command-line store management system written in C. Implements data structures — linked lists, stacks, and queues — with documented test cases and systematic debugging."
+      }
+    ]
+  },
+  "certifications": {
+    "title": "Certifications & Hackathons",
+    "subtitle": "Recognition from competitive hackathons, tech challenges, and masterclasses.",
+    "teamLeader": "Team Leader",
+    "participant": "Participant",
+    "items": [
+      {
+        "name": "TED INNOBIZ Masterclass 2025",
+        "date": "NOV 2025",
+        "type": "masterclass",
+        "role": "participant"
+      },
+      {
+        "name": "KBTG M.A.D Hackathon",
+        "date": "DEC 2024",
+        "type": "hackathon",
+        "role": "participant"
+      },
+      {
+        "name": "CUBS Blockathon – Next Gen Business Innovation",
+        "date": "JUL 2024",
+        "type": "hackathon",
+        "role": "participant"
+      },
+      {
+        "name": "Microsoft ASEAN AI for Accessibility Hackathon 2024",
+        "date": "JUN 2024",
+        "type": "hackathon",
+        "role": "leader"
+      },
+      {
+        "name": "INTkathon: Space for Idea Challenge",
+        "date": "JUN 2024",
+        "type": "hackathon",
+        "role": "participant"
+      },
+      {
+        "name": "CIA Hackathon",
+        "date": "AUG 2022",
+        "type": "hackathon",
+        "role": "leader"
       }
     ]
   },
   "contact": {
     "title": "Get In Touch",
-    "subtitle": "I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together!",
+    "subtitle": "Open to full-time roles, freelance projects, and interesting collaborations. Let's build something great together!",
     "connectTitle": "Let's Connect",
-    "followMe": "Follow Me",
-    "formTitle": "Send Message",
+    "followMe": "Find Me Online",
+    "formTitle": "Send a Message",
     "labelName": "Name",
     "labelEmail": "Email",
     "labelSubject": "Subject",
@@ -112,17 +210,17 @@
     "placeholderName": "Your name",
     "placeholderEmail": "your.email@example.com",
     "placeholderSubject": "What's this about?",
-    "placeholderMessage": "Tell me about your project or idea...",
+    "placeholderMessage": "Tell me about your project or opportunity...",
     "sendMessage": "Send Message",
     "sending": "Sending...",
-    "successMessage": "Thank you for your message! I'll get back to you soon.",
-    "errorMessage": "Sorry, there was an error sending your message. Please try again.",
+    "successMessage": "Thanks for reaching out! I'll get back to you soon.",
+    "errorMessage": "Something went wrong. Please try again or email me directly.",
     "email": "Email",
     "phone": "Phone",
     "location": "Location"
   },
   "footer": {
-    "tagline": "A passionate developer creating beautiful, functional, and user-friendly web applications. Let's build something amazing together!",
+    "tagline": "Computer Engineering graduate building AI-powered applications and full-stack systems. Always open to new opportunities and interesting problems.",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
     "rightsReserved": "All rights reserved.",

@@ -10,15 +10,8 @@ export default function Certifications() {
   const items = (get<CertItem[]>('certifications.items') ?? []) as CertItem[];
 
   return (
-    <section id="certifications" className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
-      {/* Dot bg pattern */}
-      <div className="absolute inset-0 bg-dot-pattern opacity-50 pointer-events-none"></div>
-
-      {/* Warm glow blobs */}
-      <div className="absolute top-1/3 left-0 w-72 h-72 bg-red-400/10 dark:bg-red-600/5 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-1/3 right-0 w-72 h-72 bg-amber-400/10 dark:bg-amber-600/5 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="certifications" className="py-24 bg-white dark:bg-slate-900">
+      <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
 
           {/* Header */}

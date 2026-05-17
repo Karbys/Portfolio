@@ -11,22 +11,22 @@ const kanit = Kanit({
 });
 
 export const metadata: Metadata = {
-  title: "John Doe - Full Stack Developer Portfolio",
-  description: "Portfolio of John Doe, a passionate Full Stack Developer specializing in React, Next.js, TypeScript, and modern web technologies. View my projects and get in touch!",
-  keywords: ["portfolio", "developer", "react", "nextjs", "typescript", "web development"],
-  authors: [{ name: "John Doe" }],
-  creator: "John Doe",
+  title: "Paratthakon Suksukhon – AI Engineer & Full-Stack Developer",
+  description: "Portfolio of Paratthakon Suksukhon, a Computer Engineering graduate from KMUTT specializing in AI Engineering (LangChain, RAG, LLM), Full-Stack Development (Next.js, FastAPI), and Project Management.",
+  keywords: ["portfolio", "AI engineer", "full-stack developer", "LangChain", "RAG", "Next.js", "FastAPI", "LangGraph", "KMUTT", "Thailand"],
+  authors: [{ name: "Paratthakon Suksukhon" }],
+  creator: "Paratthakon Suksukhon",
   openGraph: {
-    title: "John Doe - Full Stack Developer Portfolio",
-    description: "Portfolio of John Doe, a passionate Full Stack Developer specializing in React, Next.js, TypeScript, and modern web technologies.",
-    url: "https://johndoe.dev",
-    siteName: "John Doe Portfolio",
+    title: "Paratthakon Suksukhon – AI Engineer & Full-Stack Developer",
+    description: "Computer Engineering graduate building AI agents, RAG systems, and full-stack web applications.",
+    url: "https://p-suksukhon.dev",
+    siteName: "Paratthakon Suksukhon Portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "John Doe - Full Stack Developer Portfolio",
-    description: "Portfolio of John Doe, a passionate Full Stack Developer specializing in React, Next.js, TypeScript, and modern web technologies.",
+    title: "Paratthakon Suksukhon – AI Engineer & Full-Stack Developer",
+    description: "Computer Engineering graduate building AI agents, RAG systems, and full-stack web applications.",
   },
 };
 

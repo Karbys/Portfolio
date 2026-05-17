@@ -1,6 +1,6 @@
 {
   "header": {
-    "logo": "พอร์ตโฟลิโอ",
+    "logo": "P.Suks",
     "nav": {
       "home": "หน้าแรก",
       "about": "เกี่ยวกับ",
@@ -10,98 +10,166 @@
   },
   "hero": {
     "greeting": "สวัสดีครับ ผม",
-    "name": "John Doe",
-    "title": "นักพัฒนา Full Stack",
-    "description": "ผมชอบสร้างเว็บแอปที่สวยงาม ใช้งานง่าย และมีประโยชน์ ผมชอบเปลี่ยนปัญหาที่ซับซ้อนให้เป็นโซลูชันที่เรียบง่ายและสวยงาม",
-    "ctaWork": "ดูผลงาน",
-    "ctaContact": "ติดต่อผม"
+    "name": "พรัตธากร สุขสุขน",
+    "roles": ["AI Engineer", "Full-Stack Developer", "Project Manager"],
+    "description": "นักศึกษาวิศวกรรมคอมพิวเตอร์ (หลักสูตรนานาชาติ) จาก มจธ. หลงใหลในการสร้าง AI applications และระบบ Full-Stack ที่ใช้งานได้จริง",
+    "ctaWork": "ดูโปรเจกต์",
+    "ctaContact": "ติดต่อผม",
+    "terminalLines": [
+      { "cmd": "whoami", "out": "Paratthakon Suksukhon" },
+      { "cmd": "cat current_role.txt", "out": "The Station Group Holdings\nAI Eng · Full-Stack SWE · PM" },
+      { "cmd": "cat tech_stack.txt", "out": "LangChain · LangGraph · RAG\nNext.js · FastAPI · MongoDB" },
+      { "cmd": "echo $UNIVERSITY", "out": "KMUTT – Computer Engineering (Intl.)" }
+    ]
   },
   "about": {
     "title": "เกี่ยวกับผม",
-    "subtitle": "ผมเป็นนักพัฒนาที่มีประสบการณ์มากกว่า 5 ปี ในการสร้างประสบการณ์ดิจิทัลที่ทั้งสวยงามและใช้งานได้จริง",
+    "subtitle": "วิศวกรคอมพิวเตอร์ จาก มจธ. มุ่งเน้นการสร้างระบบ AI และแอปพลิเคชัน Full-Stack ที่มีผลกระทบในโลกจริง",
     "myStory": "เรื่องราวของผม",
-    "storyP1": "ผมเริ่มต้นเส้นทางนักพัฒนาในปี 2019 ตั้งแต่นั้นมาผมหลงใหลในการสร้างโซลูชันดิจิทัลที่สร้างความแตกต่าง ผมชอบทำงานกับเทคโนโลยีสมัยใหม่และติดตามเทรนด์ล่าสุดในการพัฒนาเว็บ",
-    "storyP2": "เมื่อไม่เขียนโค้ด คุณจะพบผมได้จากการสำรวจเทคโนโลยีใหม่ๆ มีส่วนร่วมในโปรเจกต์โอเพนซอร์ส หรือแบ่งปันความรู้กับชุมชนนักพัฒนา ผมเชื่อในการเรียนรู้อย่างต่อเนื่องและพยายามพัฒนาทักษะอยู่เสมอ",
-    "storyP3": "เป้าหมายของผมคือสร้างแอปพลิเคชันที่ไม่เพียงตอบโจทย์ความต้องการ แต่ยังเกินความคาดหวังในด้านประสบการณ์ผู้ใช้ ประสิทธิภาพ และการบำรุงรักษา",
+    "storyP1": "ผมเป็นนักศึกษาวิศวกรรมคอมพิวเตอร์ (หลักสูตรนานาชาติ) จากมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี เริ่มต้นจาก C และโครงสร้างข้อมูล ก้าวมาสู่การสร้าง AI agents, RAG pipelines และเว็บแอปพลิเคชัน Full-Stack",
+    "storyP2": "ผ่านประสบการณ์ฝึกงานที่ Botnoi Consulting, Bualoitech และงานปัจจุบันที่ The Station Group Holdings ผมได้รับประสบการณ์จริงในตำแหน่ง AI Engineer, Full-Stack Developer และ Project Manager",
+    "storyP3": "ผมสนใจจุดตัดระหว่าง AI และ Software Engineering ไม่ว่าจะเป็นการออกแบบ RAG systems, CI/CD pipelines หรือ UI ที่ตอบสนองผู้ใช้ — ผมมุ่งสร้างเครื่องมือที่มีประสิทธิภาพและใช้งานง่าย",
     "skillsTitle": "ทักษะและเทคโนโลยี",
+    "skillTabWeb": "Web Dev",
+    "skillTabAI": "AI / ML",
+    "skillTabDB": "Database",
+    "skillTabLang": "ภาษาโปรแกรม",
+    "skillTabTools": "Tools",
     "experienceTitle": "ประสบการณ์การทำงาน",
-    "achievementsTitle": "ผลงานที่ภูมิใจ",
+    "educationTitle": "การศึกษา",
+    "achievementsTitle": "ภาพรวม",
     "levelAdvanced": "ระดับสูง",
     "levelIntermediate": "ระดับกลาง",
     "levelBeginner": "ระดับเริ่มต้น",
-    "yearsExperience": "ปีประสบการณ์",
-    "projectsCompleted": "โปรเจกต์ที่ทำเสร็จ",
-    "happyClients": "ลูกค้าพึงพอใจ",
-    "support": "สนับสนุน"
+    "yearsExperience": "ปีการเรียนรู้",
+    "projectsCompleted": "โปรเจกต์ที่สร้าง",
+    "happyClients": "ใบรับรอง",
+    "support": "บริษัทที่ร่วมงาน"
   },
-  "skills": [
-    { "name": "React", "level": "advanced", "experience": "4+ ปี" },
-    { "name": "Next.js", "level": "advanced", "experience": "3+ ปี" },
-    { "name": "TypeScript", "level": "intermediate", "experience": "2+ ปี" },
-    { "name": "Node.js", "level": "intermediate", "experience": "3+ ปี" },
-    { "name": "Python", "level": "intermediate", "experience": "2+ ปี" },
-    { "name": "MongoDB", "level": "intermediate", "experience": "2+ ปี" }
+  "skillGroups": [
+    {
+      "id": "web",
+      "category": "Web Development",
+      "icon": "🌐",
+      "skills": ["React", "Next.js", "TypeScript", "Node.js", "Express.js", "FastAPI", "PHP", "Golang", "Tailwind CSS", "Bootstrap", "Shadcn", "Chart.js", "Anime.js", "Axios", "Streamlit"]
+    },
+    {
+      "id": "ai",
+      "category": "AI & Machine Learning",
+      "icon": "🤖",
+      "skills": ["LangChain", "LangGraph", "LangSmith", "RAG", "Adaptive RAG", "MCP", "Comfy UI", "Prompt Engineering", "Sentiment Analysis", "LLM Classification", "Agent-to-Agent", "ARIMA", "SARIMA", "Data Visualization"]
+    },
+    {
+      "id": "db",
+      "category": "Database & Cloud",
+      "icon": "🗄️",
+      "skills": ["MongoDB", "Firebase", "Firestore", "Oracle DB", "PhpMyAdmin", "Vector DB", "Authentication"]
+    },
+    {
+      "id": "lang",
+      "category": "ภาษาโปรแกรม",
+      "icon": "💻",
+      "skills": ["Python", "TypeScript", "JavaScript", "C", "C++", "C#", "PHP", "Golang", "HTML", "CSS"]
+    },
+    {
+      "id": "tools",
+      "category": "Tools & Design",
+      "icon": "🛠️",
+      "skills": ["GitHub", "VSCode", "Figma", "Postman", "Google Colab", "Claude Code", "Cursor", "Windsurf", "n8n", "Power BI", "Adobe Photoshop", "Premiere Pro", "Davinci Resolve", "Blender", "Jira"]
+    }
   ],
   "experiences": [
     {
-      "title": "Senior Frontend Developer",
-      "company": "Tech Company",
-      "period": "2022 - ปัจจุบัน",
-      "description": "นำทีมพัฒนา frontend สำหรับเว็บแอปพลิเคชันหลายรายการด้วย React และ Next.js"
+      "title": "AI Engineer · Software Engineer · Project Manager",
+      "company": "The Station Group Holdings Co., Ltd",
+      "period": "ส.ค. 2568 – ปัจจุบัน",
+      "type": "Work Integration Learning",
+      "description": "ดำรงสามตำแหน่งพร้อมกัน: Sprint planning & CI/CD ในฐานะ PM; Frontend/Backend ด้วย FastAPI+Agentic AI ในฐานะ SWE; และระบบ Agent-to-Agent ด้วย Adaptive RAG ในฐานะ AI Engineer"
     },
     {
-      "title": "Full Stack Developer",
-      "company": "Startup Inc.",
-      "period": "2020 - 2022",
-      "description": "พัฒนาเว็บแอปแบบ full-stack ตั้งแต่แนวคิดจนถึงการ deploy"
+      "title": "Software Engineer (Full-stack)",
+      "company": "Bualoitech Co., Ltd",
+      "period": "มิ.ย. – ส.ค. 2568",
+      "type": "Software Engineering Internship",
+      "description": "สร้างแพลตฟอร์ม chatbot ด้วย API endpoints และ CRUD system ใช้สถาปัตยกรรม Agent-to-Agent บน LangGraph, MongoDB vector search และระบบ Firebase authentication"
     },
     {
-      "title": "Frontend Developer",
-      "company": "Digital Agency",
-      "period": "2019 - 2020",
-      "description": "สร้างเว็บไซต์และเว็บแอปที่ responsive ให้กับลูกค้าหลากหลาย"
+      "title": "AI Engineer (NLP)",
+      "company": "Botnoi Consulting Co., Ltd",
+      "period": "ม.ค. – พ.ค. 2568",
+      "type": "AI-NLP Internship",
+      "description": "พัฒนาระบบ LLM classification และ sentiment analysis ปรับปรุงประสิทธิภาพด้วย RAG architecture และ implement AI agent workflows โดยใช้ MCP"
+    }
+  ],
+  "education": [
+    {
+      "school": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี",
+      "degree": "วิศวกรรมศาสตรบัณฑิต – วิศวกรรมคอมพิวเตอร์ (หลักสูตรนานาชาติ)",
+      "period": "ก.ค. 2565 – ปัจจุบัน",
+      "icon": "🎓"
+    },
+    {
+      "school": "วิทยาลัยวิทยาศาสตร์และเทคโนโลยีฉลองพระชันษา มุกดาหาร",
+      "degree": "มัธยมศึกษาตอนปลาย – สาย วิทย์-คณิต-เทคโนโลยี",
+      "period": "พ.ค. 2559 – ก.ค. 2565",
+      "icon": "🏫"
     }
   ],
   "projects": {
     "title": "โปรเจกต์ของผม",
-    "subtitle": "นี่คือโปรเจกต์ล่าสุดบางส่วนที่แสดงทักษะและประสบการณ์ของผมในเทคโนโลยีและโดเมนต่างๆ",
+    "subtitle": "รวมโปรเจกต์ด้าน AI engineering, Full-stack และ creative software ที่สร้างขึ้นจากประสบการณ์จริง",
     "all": "ทั้งหมด",
-    "categoryWeb": "พัฒนาเว็บ",
-    "categoryMobile": "แอปมือถือ",
-    "categoryAi": "AI/ML",
+    "categoryWeb": "Web Dev",
+    "categoryMobile": "Mobile",
+    "categoryAi": "AI / ML",
+    "categoryOther": "อื่นๆ",
     "featured": "แนะนำ",
     "liveDemo": "ดูเดโม",
     "github": "GitHub",
     "items": [
       {
-        "title": "แพลตฟอร์ม E-Commerce",
-        "description": "โซลูชันอีคอมเมิร์ซแบบ full-stack ด้วย Next.js, TypeScript และ Stripe สำหรับประสบการณ์ช้อปปิ้งออนไลน์ที่ราบรื่น"
+        "title": "Stellia AI",
+        "description": "AI chatbot webapp แบบ Full-stack ที่มี LLM agents และ RAG-based knowledge retrieval, FastAPI backend, integration กับ Line & Messenger webhook"
       },
       {
-        "title": "แอปจัดการงาน",
-        "description": "แอปจัดการงานแบบร่วมมือกับอัปเดตแบบเรียลไทม์ ฟีเจอร์ทำงานเป็นทีม และติดตามโปรเจกต์"
+        "title": "BualoiChat",
+        "description": "แพลตฟอร์ม chatbot ที่มี API endpoints และ CRUD system ใช้สถาปัตยกรรม Agent-to-Agent บน LangGraph และ MongoDB vector knowledge base"
       },
       {
-        "title": "แดชบอร์ดสภาพอากาศ",
-        "description": "แดชบอร์ดสภาพอากาศที่ responsive พร้อมพยากรณ์ตามตำแหน่ง แผนที่แบบอินเทอร์แอคทีฟ และการวิเคราะห์สภาพอากาศโดยละเอียด"
+        "title": "Stock Forecasting",
+        "description": "ระบบทำนายแนวโน้มหุ้นด้วย AI โดยใช้ Prophet Meta ดึงข้อมูลจาก Yahoo Finance API แล้วแสดง visualization บน dashboard"
       },
       {
-        "title": "แอปธนาคารมือถือ",
-        "description": "แอปธนาคารมือถือที่ปลอดภัยด้วยการยืนยันตัวตนแบบไบโอเมตริก ธุรกรรมแบบเรียลไทม์ และเครื่องมือจัดการการเงิน"
+        "title": "Homemade Steganography",
+        "description": "โปรแกรม Python สำหรับซ่อนข้อมูลเข้ารหัสในภาพและวิดีโอด้วยเทคนิค steganography รองรับ encrypt และ decrypt ผ่าน GUI"
       },
       {
-        "title": "ผู้ช่วยแชท AI",
-        "description": "ผู้ช่วยแชทอัจฉริยะที่ขับเคลื่อนด้วย machine learning พร้อมการประมวลผลภาษาธรรมชาติและความเข้าใจบริบท"
+        "title": "WheelPlay",
+        "description": "เกม Unity แข่งรถวีลแชร์ พร้อม Arduino hardware integration, C# physics simulation, 3D models จาก Blender และ UI ที่เน้น accessibility"
       },
       {
-        "title": "วิเคราะห์โซเชียลมีเดีย",
-        "description": "แดชบอร์ดวิเคราะห์ครบวงจรสำหรับติดตามประสิทธิภาพโซเชียลมีเดีย อินไซต์ และเมตริกการมีส่วนร่วม"
+        "title": "BRK-Store CLI",
+        "description": "ระบบจัดการร้านค้า command-line เขียนด้วยภาษา C ใช้ data structures: linked list, stack และ queue พร้อม test cases"
       }
+    ]
+  },
+  "certifications": {
+    "title": "ใบรับรองและ Hackathon",
+    "subtitle": "การยอมรับจาก hackathon ที่แข่งขัน, tech challenges และ masterclasses",
+    "teamLeader": "หัวหน้าทีม",
+    "participant": "ผู้เข้าร่วม",
+    "items": [
+      { "name": "TED INNOBIZ Masterclass 2025", "date": "พ.ย. 2568", "type": "masterclass", "role": "participant" },
+      { "name": "KBTG M.A.D Hackathon", "date": "ธ.ค. 2567", "type": "hackathon", "role": "participant" },
+      { "name": "CUBS Blockathon – Next Gen Business Innovation", "date": "ก.ค. 2567", "type": "hackathon", "role": "participant" },
+      { "name": "Microsoft ASEAN AI for Accessibility Hackathon 2024", "date": "มิ.ย. 2567", "type": "hackathon", "role": "leader" },
+      { "name": "INTkathon: Space for Idea Challenge", "date": "มิ.ย. 2567", "type": "hackathon", "role": "participant" },
+      { "name": "CIA Hackathon", "date": "ส.ค. 2565", "type": "hackathon", "role": "leader" }
     ]
   },
   "contact": {
     "title": "ติดต่อผม",
-    "subtitle": "ผมสนใจโอกาสใหม่และโปรเจกต์ที่น่าตื่นเต้นเสมอ มาร่วมกันหารือว่าเราจะทำงานร่วมกันได้อย่างไร!",
+    "subtitle": "พร้อมรับโอกาสใหม่ งาน freelance และการร่วมมือที่น่าสนใจ มาสร้างสิ่งที่ยอดเยี่ยมด้วยกัน!",
     "connectTitle": "ติดต่อกัน",
     "followMe": "ติดตามผม",
     "formTitle": "ส่งข้อความ",
@@ -112,17 +180,17 @@
     "placeholderName": "ชื่อของคุณ",
     "placeholderEmail": "your.email@example.com",
     "placeholderSubject": "เกี่ยวกับอะไร?",
-    "placeholderMessage": "บอกเกี่ยวกับโปรเจกต์หรือไอเดียของคุณ...",
+    "placeholderMessage": "บอกเกี่ยวกับโปรเจกต์หรือโอกาสของคุณ...",
     "sendMessage": "ส่งข้อความ",
     "sending": "กำลังส่ง...",
-    "successMessage": "ขอบคุณสำหรับข้อความ! ผมจะติดต่อกลับโดยเร็วที่สุด",
-    "errorMessage": "ขออภัย เกิดข้อผิดพลาดในการส่งข้อความ กรุณาลองอีกครั้ง",
+    "successMessage": "ขอบคุณที่ติดต่อมา! ผมจะตอบกลับโดยเร็วที่สุด",
+    "errorMessage": "เกิดข้อผิดพลาด กรุณาลองอีกครั้งหรืออีเมลมาโดยตรง",
     "email": "อีเมล",
     "phone": "โทรศัพท์",
     "location": "ที่อยู่"
   },
   "footer": {
-    "tagline": "นักพัฒนาที่หลงใหลในการสร้างเว็บแอปที่สวยงาม ใช้งานได้จริง และเป็นมิตรกับผู้ใช้ มาร่วมกันสร้างสิ่งที่น่าทึ่งกัน!",
+    "tagline": "วิศวกรคอมพิวเตอร์ที่หลงใหลในการสร้าง AI applications และระบบ Full-Stack พร้อมรับโอกาสและปัญหาที่น่าสนใจเสมอ",
     "quickLinks": "ลิงก์ด่วน",
     "contactInfo": "ข้อมูลติดต่อ",
     "rightsReserved": "สงวนลิขสิทธิ์",

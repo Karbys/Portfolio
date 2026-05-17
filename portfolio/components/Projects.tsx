@@ -6,143 +6,201 @@ import { useLocale } from '@/context/LocaleContext';
 
 type ProjectItem = { title: string; description: string };
 
+const projectMeta = [
+  {
+    id: 1,
+    technologies: ['Next.js', 'FastAPI', 'LangChain', 'RAG', 'Gemini API', 'OpenAI'],
+    category: 'ai' as const,
+    liveUrl: '#',
+    githubUrl: '#',
+    featured: true,
+    icon: '🤖',
+    gradient: 'from-violet-500 via-purple-500 to-blue-500',
+  },
+  {
+    id: 2,
+    technologies: ['React', 'Node.js', 'LangGraph', 'MongoDB', 'Firebase', 'REST API'],
+    category: 'web' as const,
+    liveUrl: '#',
+    githubUrl: '#',
+    featured: true,
+    icon: '💬',
+    gradient: 'from-blue-500 via-cyan-500 to-teal-500',
+  },
+  {
+    id: 3,
+    technologies: ['HTML/CSS/JS', 'Python', 'Prophet Meta', 'Yahoo Finance API'],
+    category: 'ai' as const,
+    liveUrl: '#',
+    githubUrl: '#',
+    featured: true,
+    icon: '📈',
+    gradient: 'from-green-500 via-emerald-500 to-cyan-500',
+  },
+  {
+    id: 4,
+    technologies: ['Python', 'Steganography', 'Cryptography', 'Tkinter'],
+    category: 'web' as const,
+    liveUrl: '#',
+    githubUrl: '#',
+    featured: false,
+    icon: '🔐',
+    gradient: 'from-orange-500 via-red-500 to-pink-500',
+  },
+  {
+    id: 5,
+    technologies: ['Unity', 'C#', 'Arduino', 'Blender', 'Arduino IDE'],
+    category: 'other' as const,
+    liveUrl: '#',
+    githubUrl: '#',
+    featured: false,
+    icon: '🎮',
+    gradient: 'from-pink-500 via-fuchsia-500 to-violet-500',
+  },
+  {
+    id: 6,
+    technologies: ['C', 'Linked List', 'Stack', 'Queue', 'CLI'],
+    category: 'other' as const,
+    liveUrl: '#',
+    githubUrl: '#',
+    featured: false,
+    icon: '🏪',
+    gradient: 'from-slate-500 via-gray-500 to-zinc-500',
+  },
+];
+
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
   const { t, get } = useLocale();
   const localeItems = (get<ProjectItem[]>('projects.items') ?? []) as ProjectItem[];
 
-  const projectMeta = [
-    { id: 1, technologies: ['Next.js', 'TypeScript', 'Stripe', 'MongoDB'], category: 'web' as const, liveUrl: '#', githubUrl: '#', featured: true, icon: '🛒' },
-    { id: 2, technologies: ['React', 'Node.js', 'Socket.io', 'PostgreSQL'], category: 'web' as const, liveUrl: '#', githubUrl: '#', featured: true, icon: '📋' },
-    { id: 3, technologies: ['React', 'API Integration', 'Chart.js', 'CSS3'], category: 'web' as const, liveUrl: '#', githubUrl: '#', featured: false, icon: '🌤️' },
-    { id: 4, technologies: ['React Native', 'Firebase', 'Biometrics', 'REST API'], category: 'mobile' as const, liveUrl: '#', githubUrl: '#', featured: true, icon: '🏦' },
-    { id: 5, technologies: ['Python', 'TensorFlow', 'FastAPI', 'WebSocket'], category: 'ai' as const, liveUrl: '#', githubUrl: '#', featured: false, icon: '🤖' },
-    { id: 6, technologies: ['Vue.js', 'D3.js', 'Python', 'Redis'], category: 'web' as const, liveUrl: '#', githubUrl: '#', featured: false, icon: '📊' }
-  ];
-
-  const projects = useMemo(() => projectMeta.map((meta, i) => ({
-    ...meta,
-    title: localeItems[i]?.title ?? meta.id.toString(),
-    description: localeItems[i]?.description ?? ''
-  })), [localeItems]);
+  const projects = useMemo(
+    () => projectMeta.map((meta, i) => ({
+      ...meta,
+      title: localeItems[i]?.title ?? `Project ${meta.id}`,
+      description: localeItems[i]?.description ?? '',
+    })),
+    [localeItems]
+  );
 
   const categories = [
-    { id: 'all', nameKey: 'projects.all' as const },
-    { id: 'web', nameKey: 'projects.categoryWeb' as const },
-    { id: 'mobile', nameKey: 'projects.categoryMobile' as const },
-    { id: 'ai', nameKey: 'projects.categoryAi' as const }
+    { id: 'all', label: t('projects.all') },
+    { id: 'ai', label: t('projects.categoryAi') },
+    { id: 'web', label: t('projects.categoryWeb') },
+    { id: 'other', label: t('projects.categoryOther') },
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filtered = activeFilter === 'all' ? projects : projects.filter(p => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-slate-800/50">
+    <section id="projects" className="py-24 bg-gray-50 dark:bg-slate-800/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
+
+          {/* Header */}
           <AnimationWrapper animation="fadeInUp">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-800 dark:text-slate-100 mb-4">{t('projects.title')}</h2>
-              <div className="w-24 h-1 bg-blue-600 dark:bg-blue-500 mx-auto mb-6"></div>
-              <p className="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">
-                {t('projects.subtitle')}
-              </p>
+            <div className="text-center mb-14">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">{t('projects.title')}</h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-violet-600 mx-auto mb-5 rounded-full"></div>
+              <p className="text-lg text-gray-500 dark:text-slate-400 max-w-2xl mx-auto">{t('projects.subtitle')}</p>
             </div>
           </AnimationWrapper>
 
-          {/* Filter Buttons */}
-          <AnimationWrapper animation="fadeInUp" delay={200}>
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              {categories.map((category, index) => (
+          {/* Filter tabs */}
+          <AnimationWrapper animation="fadeInUp" delay={100}>
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
+              {categories.map(cat => (
                 <button
-                  key={category.id}
-                  onClick={() => setActiveFilter(category.id)}
-                  className={`px-6 py-2 rounded-full font-medium transition-all duration-300 hover-lift ${
-                    activeFilter === category.id
-                      ? 'bg-blue-600 dark:bg-blue-500 text-white shadow-lg hover-glow'
-                      : 'bg-white dark:bg-slate-800 text-gray-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-600'
+                  key={cat.id}
+                  onClick={() => setActiveFilter(cat.id)}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    activeFilter === cat.id
+                      ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-md shadow-blue-500/20'
+                      : 'bg-white dark:bg-slate-800 text-gray-600 dark:text-slate-400 border border-gray-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400'
                   }`}
-                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {t(category.nameKey)}
+                  {cat.label}
                 </button>
               ))}
             </div>
           </AnimationWrapper>
 
-          {/* Projects Grid */}
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-slate-100 mb-8 text-center">
-              {activeFilter === 'all' ? t('projects.all') : t(categories.find(c => c.id === activeFilter)?.nameKey ?? 'projects.all')}
-            </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project, index) => (
-                <AnimationWrapper key={project.id} animation="scaleIn" delay={index * 100}>
-                  <div
-                    className="bg-white dark:bg-slate-800 rounded-xl shadow-lg dark:shadow-slate-900/50 overflow-hidden hover:shadow-xl dark:hover:shadow-slate-900 transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-slate-700 group flex flex-col h-full hover-lift"
-                  >
-                  {/* Project Image */}
-                  <div className="relative h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 overflow-hidden">
-                    <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+          {/* Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((project, index) => (
+              <AnimationWrapper key={project.id} animation="scaleIn" delay={index * 80}>
+                <div className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700/50 hover:border-blue-200 dark:hover:border-blue-700/50 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-900/20 transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+
+                  {/* Card header gradient */}
+                  <div className={`relative h-44 bg-gradient-to-br ${project.gradient} overflow-hidden`}>
+                    <div className="absolute inset-0 bg-black/10"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-white text-5xl opacity-90 group-hover:scale-110 transition-transform duration-300">{project.icon}</span>
+                      <span className="text-6xl opacity-90 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">{project.icon}</span>
                     </div>
                     {project.featured && (
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                      <div className="absolute top-3 left-3">
+                        <span className="flex items-center gap-1 px-2.5 py-1 bg-yellow-400 text-yellow-900 text-xs font-bold rounded-full shadow">
                           ⭐ {t('projects.featured')}
                         </span>
                       </div>
                     )}
+                    <div className="absolute top-3 right-3">
+                      <span className={`px-2.5 py-1 text-xs font-semibold rounded-full backdrop-blur-sm ${
+                        project.category === 'ai' ? 'bg-violet-500/80 text-white' :
+                        project.category === 'web' ? 'bg-blue-500/80 text-white' :
+                        'bg-slate-600/80 text-white'
+                      }`}>
+                        {project.category === 'ai' ? 'AI/ML' : project.category === 'web' ? 'Web' : 'Other'}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Project Content */}
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-slate-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </h3>
-                    
-                    {/* Description with fixed height */}
-                    <div className="flex-grow mb-4">
-                      <p className="text-gray-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-3 h-16 flex items-start">
-                        {project.description}
-                      </p>
-                    </div>
+                    <p className="text-gray-500 dark:text-slate-400 text-sm leading-relaxed line-clamp-3 flex-grow mb-4">
+                      {project.description}
+                    </p>
 
-                    {/* Technologies with fixed height */}
-                    <div className="flex flex-wrap gap-2 mb-6 min-h-[2.5rem] items-start">
-                      {project.technologies.map((tech, index) => (
+                    {/* Tech tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-5 min-h-[2rem]">
+                      {project.technologies.map(tech => (
                         <span
-                          key={index}
-                          className="bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-xs font-semibold"
+                          key={tech}
+                          className="px-2 py-0.5 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-300 text-xs rounded-md font-medium border border-gray-200 dark:border-slate-600"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    {/* Action Buttons - Always at bottom */}
-                    <div className="flex gap-3 mt-auto">
+                    {/* Buttons */}
+                    <div className="flex gap-2 mt-auto">
                       <a
                         href={project.liveUrl}
-                        className="flex-1 bg-blue-600 dark:bg-blue-500 text-white text-center py-2 px-4 rounded-lg text-sm font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-200 shadow-md hover:shadow-lg"
+                        className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-700 hover:to-violet-700 text-white text-xs font-semibold rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
                       >
-                        🚀 {t('projects.liveDemo')}
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        {t('projects.liveDemo')}
                       </a>
                       <a
                         href={project.githubUrl}
-                        className="flex-1 border-2 border-gray-300 dark:border-slate-600 text-gray-700 dark:text-slate-300 text-center py-2 px-4 rounded-lg text-sm font-semibold hover:border-blue-600 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-all duration-200"
+                        className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 border border-gray-200 dark:border-slate-600 text-gray-600 dark:text-slate-300 text-xs font-semibold rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-all duration-200"
                       >
-                        💻 {t('projects.github')}
+                        <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                        {t('projects.github')}
                       </a>
                     </div>
                   </div>
-                  </div>
-                </AnimationWrapper>
-              ))}
-            </div>
+                </div>
+              </AnimationWrapper>
+            ))}
           </div>
         </div>
       </div>

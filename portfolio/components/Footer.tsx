@@ -7,21 +7,26 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   const quickLinks = [
-    { key: 'header.nav.home', href: '#home' },
-    { key: 'header.nav.about', href: '#about' },
+    { key: 'header.nav.home',     href: '#home' },
+    { key: 'header.nav.about',    href: '#about' },
     { key: 'header.nav.projects', href: '#projects' },
-    { key: 'header.nav.contact', href: '#contact' },
+    { key: 'header.nav.contact',  href: '#contact' },
   ];
 
   return (
-    <footer className="bg-gray-950 dark:bg-slate-950 text-white">
-      <div className="container mx-auto px-6 py-14">
+    <footer className="bg-gray-950 dark:bg-slate-950 text-white relative overflow-hidden">
+      {/* Subtle warm gradient top edge */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-600/40 to-transparent"></div>
+      {/* Warm orb */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-red-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 py-14 relative z-10">
         <div className="grid md:grid-cols-3 gap-10">
 
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center text-white font-bold text-xs">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-600 to-amber-500 flex items-center justify-center text-white font-bold text-xs shadow-sm">
                 PS
               </div>
               <span className="text-lg font-bold">P.Suks</span>
@@ -34,7 +39,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/p-suksukhon"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-gray-800 dark:bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-200"
+                className="w-9 h-9 rounded-lg bg-gray-800 dark:bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-gradient-to-br hover:from-red-600 hover:to-amber-500 hover:text-white transition-all duration-200 hover:-translate-y-0.5"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -43,7 +48,7 @@ export default function Footer() {
               </a>
               <a
                 href="mailto:paratthakon.suks@gmail.com"
-                className="w-9 h-9 rounded-lg bg-gray-800 dark:bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-violet-600 hover:text-white transition-all duration-200"
+                className="w-9 h-9 rounded-lg bg-gray-800 dark:bg-slate-800 flex items-center justify-center text-gray-400 hover:bg-gradient-to-br hover:from-amber-500 hover:to-orange-500 hover:text-white transition-all duration-200 hover:-translate-y-0.5"
                 aria-label="Email"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,15 +60,15 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400 dark:text-slate-500 mb-4">{t('footer.quickLinks')}</h4>
-            <ul className="space-y-2">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-slate-500 mb-4">{t('footer.quickLinks')}</h4>
+            <ul className="space-y-2.5">
               {quickLinks.map(link => (
                 <li key={link.key}>
                   <a
                     href={link.href}
-                    className="text-gray-300 dark:text-slate-400 hover:text-white text-sm transition-colors duration-150 flex items-center gap-1.5 group"
+                    className="group flex items-center gap-2 text-gray-300 dark:text-slate-400 hover:text-white text-sm transition-colors duration-150"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-blue-400 transition-all duration-200 overflow-hidden"></span>
+                    <span className="w-0 group-hover:w-3 h-px bg-gradient-to-r from-red-500 to-amber-400 transition-all duration-200 overflow-hidden rounded-full"></span>
                     {t(link.key)}
                   </a>
                 </li>
@@ -71,24 +76,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400 dark:text-slate-500 mb-4">{t('footer.contactInfo')}</h4>
-            <div className="space-y-2 text-sm">
-              <a href="mailto:paratthakon.suks@gmail.com" className="flex items-center gap-2 text-gray-300 dark:text-slate-400 hover:text-white transition-colors">
-                <svg className="w-3.5 h-3.5 flex-shrink-0 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-slate-500 mb-4">{t('footer.contactInfo')}</h4>
+            <div className="space-y-2.5 text-sm">
+              <a href="mailto:paratthakon.suks@gmail.com" className="flex items-center gap-2 text-gray-300 dark:text-slate-400 hover:text-white transition-colors group">
+                <svg className="w-3.5 h-3.5 flex-shrink-0 text-red-500 group-hover:text-red-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 paratthakon.suks@gmail.com
               </a>
-              <a href="tel:+66855894478" className="flex items-center gap-2 text-gray-300 dark:text-slate-400 hover:text-white transition-colors">
-                <svg className="w-3.5 h-3.5 flex-shrink-0 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <a href="tel:+66855894478" className="flex items-center gap-2 text-gray-300 dark:text-slate-400 hover:text-white transition-colors group">
+                <svg className="w-3.5 h-3.5 flex-shrink-0 text-amber-500 group-hover:text-amber-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 +66 85-589-4478
               </a>
               <span className="flex items-center gap-2 text-gray-300 dark:text-slate-400">
-                <svg className="w-3.5 h-3.5 flex-shrink-0 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5 flex-shrink-0 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>

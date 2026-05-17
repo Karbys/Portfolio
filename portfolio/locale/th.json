@@ -10,7 +10,7 @@
   },
   "hero": {
     "greeting": "สวัสดีครับ ผม",
-    "name": "พรัตธากร สุขสุขน",
+    "name": "ปรัตถกร สุขสุคนธ์",
     "roles": ["AI Engineer", "Full-Stack Developer", "Project Manager"],
     "description": "นักศึกษาวิศวกรรมคอมพิวเตอร์ (หลักสูตรนานาชาติ) จาก มจธ. หลงใหลในการสร้าง AI applications และระบบ Full-Stack ที่ใช้งานได้จริง",
     "ctaWork": "ดูโปรเจกต์",

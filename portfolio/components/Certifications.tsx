@@ -10,8 +10,15 @@ export default function Certifications() {
   const items = (get<CertItem[]>('certifications.items') ?? []) as CertItem[];
 
   return (
-    <section id="certifications" className="py-24 bg-white dark:bg-slate-900">
-      <div className="container mx-auto px-6">
+    <section id="certifications" className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
+      {/* Dot bg pattern */}
+      <div className="absolute inset-0 bg-dot-pattern opacity-50 pointer-events-none"></div>
+
+      {/* Warm glow blobs */}
+      <div className="absolute top-1/3 left-0 w-72 h-72 bg-red-400/10 dark:bg-red-600/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-1/3 right-0 w-72 h-72 bg-amber-400/10 dark:bg-amber-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
 
           {/* Header */}
@@ -20,34 +27,37 @@ export default function Certifications() {
               <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
                 {t('certifications.title')}
               </h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-violet-600 mx-auto mb-5 rounded-full"></div>
+              <div className="w-16 h-1 bg-gradient-to-r from-red-600 to-amber-500 mx-auto mb-5 rounded-full"></div>
               <p className="text-lg text-gray-500 dark:text-slate-400 max-w-2xl mx-auto">
                 {t('certifications.subtitle')}
               </p>
             </div>
           </AnimationWrapper>
 
-          {/* Cert grid */}
+          {/* Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {items.map((cert, index) => (
               <AnimationWrapper key={index} animation="scaleIn" delay={index * 80}>
-                <div className="group relative flex flex-col gap-3 p-5 bg-gray-50 dark:bg-slate-800/60 rounded-2xl border border-gray-100 dark:border-slate-700/50 hover:border-blue-200 dark:hover:border-blue-700/50 hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-900/20 transition-all duration-300 hover:-translate-y-0.5">
+                <div className="group relative flex flex-col gap-4 p-6 bg-gray-50 dark:bg-slate-800/60 rounded-2xl border-2 border-gray-100 dark:border-slate-700/50 hover:border-red-200 dark:hover:border-amber-700/40 hover:shadow-xl hover:shadow-red-500/10 dark:hover:shadow-amber-900/10 transition-all duration-300 hover:-translate-y-1.5 card-shimmer overflow-hidden">
 
-                  {/* Icon + type badge */}
+                  {/* Decorative corner gradient */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-red-500/10 to-transparent rounded-2xl pointer-events-none group-hover:from-red-500/20 transition-all duration-300"></div>
+
+                  {/* Top row: icon + badges */}
                   <div className="flex items-start justify-between">
-                    <span className="text-2xl">
+                    <span className="text-3xl group-hover:scale-110 transition-transform duration-300">
                       {cert.type === 'masterclass' ? '🎓' : '🏆'}
                     </span>
-                    <div className="flex gap-1.5">
+                    <div className="flex flex-wrap gap-1.5 justify-end">
                       {cert.role === 'leader' && (
-                        <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-yellow-100 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-800/50">
+                        <span className="px-2.5 py-0.5 text-xs font-bold rounded-full bg-gradient-to-r from-yellow-400 to-amber-500 text-yellow-900 shadow-sm animate-badge-pop">
                           👑 {t('certifications.teamLeader')}
                         </span>
                       )}
-                      <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${
+                      <span className={`px-2.5 py-0.5 text-xs font-semibold rounded-full border ${
                         cert.type === 'masterclass'
-                          ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800/50'
-                          : 'bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-400 border border-violet-200 dark:border-violet-800/50'
+                          ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800/50'
+                          : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800/50'
                       }`}>
                         {cert.type === 'masterclass' ? 'Masterclass' : 'Hackathon'}
                       </span>
@@ -55,20 +65,17 @@ export default function Certifications() {
                   </div>
 
                   {/* Name */}
-                  <h3 className="font-semibold text-gray-900 dark:text-white text-sm leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="font-bold text-gray-900 dark:text-white text-sm leading-snug group-hover:text-red-600 dark:group-hover:text-amber-400 transition-colors">
                     {cert.name}
                   </h3>
 
-                  {/* Date */}
-                  <div className="flex items-center gap-1.5 mt-auto">
-                    <svg className="w-3.5 h-3.5 text-gray-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {/* Date with calendar icon */}
+                  <div className="flex items-center gap-1.5 mt-auto pt-1 border-t border-gray-100 dark:border-slate-700/50">
+                    <svg className="w-3.5 h-3.5 text-red-400 dark:text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <span className="text-xs text-gray-400 dark:text-slate-500">{cert.date}</span>
+                    <span className="text-xs text-gray-400 dark:text-slate-500 font-medium">{cert.date}</span>
                   </div>
-
-                  {/* Subtle shine on hover */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/0 to-violet-500/0 group-hover:from-blue-500/5 group-hover:to-violet-500/5 transition-all duration-300 pointer-events-none"></div>
                 </div>
               </AnimationWrapper>
             ))}

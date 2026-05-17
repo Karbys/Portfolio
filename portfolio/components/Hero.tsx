@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import FloatingElements from './FloatingElements';
 import { useLocale } from '@/context/LocaleContext';
 
 type TerminalLine = { cmd: string; out: string };
@@ -95,17 +94,7 @@ export default function Hero() {
   }, [displayText, phase, roleIdx, roles]);
 
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center bg-fixed bg-gradient-to-br from-orange-50 via-red-50/60 to-amber-50/40 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 relative overflow-hidden"
-    >
-      <FloatingElements />
-
-      {/* Warm gradient orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-red-400/20 dark:bg-red-600/10 rounded-full blur-3xl pointer-events-none animate-float-slow"></div>
-      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-amber-400/20 dark:bg-amber-500/10 rounded-full blur-3xl pointer-events-none animate-float-delayed"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-red-400/8 via-orange-400/8 to-amber-400/8 dark:from-red-600/5 dark:via-orange-600/5 dark:to-amber-600/5 animate-gradient-shift pointer-events-none"></div>
-
+    <section id="home" className="min-h-screen flex items-center relative">
       <div className="container mx-auto px-6 py-24 relative z-10">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 

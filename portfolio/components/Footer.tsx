@@ -14,7 +14,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-950 dark:bg-slate-950 text-white relative overflow-hidden">
+    <footer className="bg-gray-950/85 dark:bg-slate-950/90 backdrop-blur-md text-white relative overflow-hidden border-t border-white/5">
       {/* Subtle warm gradient top edge */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-600/40 to-transparent"></div>
       {/* Warm orb */}

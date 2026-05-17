@@ -81,7 +81,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
+    <section id="about" className="py-24 relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto space-y-20">
 

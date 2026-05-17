@@ -39,7 +39,7 @@ export default function Projects() {
   const filtered = activeFilter === 'all' ? projects : projects.filter(p => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-24 bg-gray-50 dark:bg-slate-800/30 relative overflow-hidden">
+    <section id="projects" className="py-24 relative overflow-hidden">
       {/* Grid bg pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-70 pointer-events-none"></div>
 

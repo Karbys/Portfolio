@@ -10,7 +10,7 @@ export default function Certifications() {
   const items = (get<CertItem[]>('certifications.items') ?? []) as CertItem[];
 
   return (
-    <section id="certifications" className="py-24 bg-white dark:bg-slate-900">
+    <section id="certifications" className="py-24">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
 

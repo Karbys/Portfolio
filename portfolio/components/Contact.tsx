@@ -60,7 +60,7 @@ export default function Contact() {
   const inputClass = `${inputBase} border-gray-200 dark:border-slate-700 focus:border-red-500 dark:focus:border-amber-400 focus:ring-red-500/20 dark:focus:ring-amber-400/20`;
 
   return (
-    <section id="contact" className="py-24 bg-gray-50 dark:bg-slate-800/30 relative overflow-hidden">
+    <section id="contact" className="py-24 relative overflow-hidden">
       {/* Grid bg pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none"></div>
 

@@ -1,13 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocale } from '@/context/LocaleContext';
 import { useTheme } from '@/context/ThemeContext';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { t, locale, setLocale } = useLocale();
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handler, { passive: true });
+    handler();
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
 
   const menuItems = [
     { key: 'header.nav.home', href: '#home' },
@@ -16,17 +24,27 @@ export default function Header() {
     { key: 'header.nav.contact', href: '#contact' },
   ];
 
+  const navTextClass = scrolled
+    ? 'text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white'
+    : 'text-gray-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-amber-400';
+
   return (
-    <header className="fixed top-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-gray-100/80 dark:border-slate-800/80 z-50">
-      <nav className="container mx-auto px-6 py-3.5">
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-gray-100 dark:border-slate-800 shadow-sm shadow-black/5'
+          : 'bg-transparent border-b border-transparent'
+      }`}
+    >
+      <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
 
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center text-white font-bold text-xs shadow-sm group-hover:shadow-md group-hover:shadow-blue-500/30 transition-all duration-200">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-600 to-amber-500 flex items-center justify-center text-white font-bold text-xs shadow-sm group-hover:shadow-md group-hover:shadow-red-500/30 transition-all duration-200">
               PS
             </div>
-            <span className="text-lg font-bold text-gray-900 dark:text-white">
+            <span className={`text-lg font-bold transition-colors duration-300 ${scrolled ? 'text-gray-900 dark:text-white' : 'text-gray-900 dark:text-white'}`}>
               {t('header.logo')}
             </span>
           </a>
@@ -37,7 +55,7 @@ export default function Header() {
               <a
                 key={item.key}
                 href={item.href}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800 transition-all duration-150"
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/5 ${navTextClass}`}
               >
                 {t(item.key)}
               </a>
@@ -45,12 +63,11 @@ export default function Header() {
           </div>
 
           {/* Controls */}
-          <div className="hidden md:flex items-center gap-1 border-l border-gray-200 dark:border-slate-700 pl-4 ml-2">
-            {/* Theme */}
+          <div className="hidden md:flex items-center gap-1 pl-4 ml-2 border-l border-gray-200/60 dark:border-slate-700/60">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-500 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white transition-all duration-150"
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              className={`p-2 rounded-lg transition-all duration-200 hover:bg-white/20 dark:hover:bg-white/5 ${scrolled ? 'text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white' : 'text-gray-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-amber-400'}`}
+              aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,26 +80,21 @@ export default function Header() {
               )}
             </button>
 
-            {/* Locale */}
-            <div className="flex items-center rounded-lg border border-gray-200 dark:border-slate-700 overflow-hidden">
+            <div className="flex items-center rounded-lg border border-gray-200/60 dark:border-slate-700/60 overflow-hidden">
               <button
                 onClick={() => setLocale('en')}
-                className={`px-2.5 py-1.5 text-xs font-semibold transition-colors ${locale === 'en' ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white' : 'text-gray-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800'}`}
-              >
-                EN
-              </button>
+                className={`px-2.5 py-1.5 text-xs font-semibold transition-colors ${locale === 'en' ? 'bg-gradient-to-r from-red-600 to-amber-500 text-white' : 'text-gray-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800'}`}
+              >EN</button>
               <button
                 onClick={() => setLocale('th')}
-                className={`px-2.5 py-1.5 text-xs font-semibold transition-colors ${locale === 'th' ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white' : 'text-gray-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800'}`}
-              >
-                TH
-              </button>
+                className={`px-2.5 py-1.5 text-xs font-semibold transition-colors ${locale === 'th' ? 'bg-gradient-to-r from-red-600 to-amber-500 text-white' : 'text-gray-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800'}`}
+              >TH</button>
             </div>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 rounded-lg text-gray-600 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+            className={`md:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-gray-600 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-800' : 'text-gray-700 dark:text-slate-300 hover:bg-white/20'}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -95,12 +107,12 @@ export default function Header() {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-3 pb-3 border-t border-gray-100 dark:border-slate-800 pt-3 space-y-1">
+          <div className="md:hidden mt-3 pb-3 border-t border-gray-100/60 dark:border-slate-800/60 pt-3 space-y-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg rounded-xl mt-2 px-2 shadow-lg">
             {menuItems.map(item => (
               <a
                 key={item.key}
                 href={item.href}
-                className="block px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+                className="block px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 dark:text-slate-300 hover:bg-red-50 dark:hover:bg-slate-800 hover:text-red-600 dark:hover:text-amber-400 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t(item.key)}
@@ -121,14 +133,8 @@ export default function Header() {
                   </svg>
                 )}
               </button>
-              <button
-                onClick={() => { setLocale('en'); setIsMenuOpen(false); }}
-                className={`flex-1 py-2 rounded-lg text-sm font-semibold text-center ${locale === 'en' ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white' : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300'}`}
-              >EN</button>
-              <button
-                onClick={() => { setLocale('th'); setIsMenuOpen(false); }}
-                className={`flex-1 py-2 rounded-lg text-sm font-semibold text-center ${locale === 'th' ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white' : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300'}`}
-              >TH</button>
+              <button onClick={() => { setLocale('en'); setIsMenuOpen(false); }} className={`flex-1 py-2 rounded-lg text-sm font-semibold text-center ${locale === 'en' ? 'bg-gradient-to-r from-red-600 to-amber-500 text-white' : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300'}`}>EN</button>
+              <button onClick={() => { setLocale('th'); setIsMenuOpen(false); }} className={`flex-1 py-2 rounded-lg text-sm font-semibold text-center ${locale === 'th' ? 'bg-gradient-to-r from-red-600 to-amber-500 text-white' : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300'}`}>TH</button>
             </div>
           </div>
         )}

@@ -97,7 +97,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center bg-gradient-to-br from-orange-50 via-red-50/60 to-amber-50/40 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 relative overflow-hidden"
+      className="min-h-screen flex items-center bg-fixed bg-gradient-to-br from-orange-50 via-red-50/60 to-amber-50/40 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 relative overflow-hidden"
     >
       <FloatingElements />
 
